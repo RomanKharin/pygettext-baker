@@ -1,0 +1,38 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pygettextbaker-testapp\n"
+"POT-Creation-Date: 2015-05-09 17:17+MSK\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Roman Kharin <romiq.kh@gmail.com>\n"
+"Language-Team: \n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Russian\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: testapp/testapp.py:14
+msgid "Hello from Test program"
+msgstr "Привет от Тестовой программы"
+
+#: testapp/testapp.py:15
+msgid "Arguments: ({})"
+msgstr "Аргументы: ({})"
+
+#: testapp/testapp.py:17
+msgid "%d) %s"
+msgstr ""
+
+#: testapp/testapp.py:19
+msgid "Environment variables:"
+msgstr "Переменные окружения:"
+
+#: testapp/testapp.py:21
+msgid "{:d}) {} = {}"
+msgstr ""
+
+#: testapp/testapp.py:22
+msgid "End of output"
+msgstr "Конец вывода"
+
