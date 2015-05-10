@@ -3,22 +3,28 @@
 
 import os
 import sys
-import gettext
 
-gettext.bindtextdomain("default", 
-    os.path.join(os.path.dirname(__file__), "locale"))
-gettext.textdomain("default")
+if os.environ.get("TESTBAKED"):
+    import gettextbaked as gettext
+    gettext.bindtextdomain("testapp")
+else:
+    import gettext
+    gettext.bindtextdomain("testapp", 
+        os.path.join(os.path.dirname(__file__), "locale"))
+
+gettext.textdomain("testapp")
 _ = gettext.gettext
 
 def main():
     print(_("Hello from Test program"))
-    print(_("Arguments: ({})").format(len(sys.argv) - 1)
+    print(_("Arguments: ({})").format(len(sys.argv) - 1))
     for idx, arg in enumerate(sys.argv[1:]):
-        print(_("%d): %s") % (idx + 1, arg))
-    print(_(""))
-    for idx, (key, value) in os.env.items():
-        print(_("{:d}) {} = {}").format(idx, key, value))
-    print(_("End on output"))    
+        print(_("%d) %s") % (idx + 1, arg))
+    # print(_("")) # Empty string bound to settings
+    print(_("Environment variables:"))
+    for idx, (key, value) in enumerate(os.environ.items()):
+        print(_("{:d}) {} = {}").format(idx + 1, key, repr(value)))
+    print(_("End of output"))
     
 if __name__ == "__main__":
     sys.exit(main())
