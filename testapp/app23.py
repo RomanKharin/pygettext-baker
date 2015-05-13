@@ -6,22 +6,19 @@ import sys
 
 if os.environ.get("TESTBAKED"):
     import gettextbaked as gettext
+    tr = gettext.translation("app23", fallback = True)
 else:
     import gettext
-    gettext.bindtextdomain("app23", 
+    tr = gettext.translation("app23", fallback = True, localedir =
         os.path.join(os.path.dirname(__file__), "locale"))
-
-gettext.textdomain("app23")
-_ = gettext.gettext
-gettext.install("app23")
+tr.install()
 
 def main():
+
     print(_("Test context"))
 
-    tr = gettext.translation("app23", fallback = True)
-
     for i in range(11 if len(sys.argv) < 2 else int(sys.argv[1])):
-        print(gettext.ngettext("{} apple", "{} apples", i).format(i))
+        print(tr.ngettext("{} apple", "{} apples", i).format(i))
     
 if __name__ == "__main__":
     sys.exit(main())
