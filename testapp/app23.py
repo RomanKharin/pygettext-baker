@@ -4,7 +4,7 @@
 import os
 import sys
 
-if os.environ.get("TESTBAKED"):
+if hasattr(sys, 'frozen') or os.environ.get("TESTBAKED"):
     import gettextbaked as gettext
     tr = gettext.translation("app23", fallback = True)
 else:
