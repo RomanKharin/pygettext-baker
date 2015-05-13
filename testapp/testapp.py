@@ -6,7 +6,6 @@ import sys
 
 if os.environ.get("TESTBAKED"):
     import gettextbaked as gettext
-    gettext.bindtextdomain("testapp")
 else:
     import gettext
     gettext.bindtextdomain("testapp", 
