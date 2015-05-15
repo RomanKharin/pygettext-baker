@@ -24,3 +24,6 @@ Created module can be used as following:
 ```
 
 More examples are in `testapp` folder.
+
+Module heavily based on Python's `gettext.py` module, with copying some code 
+from it.
