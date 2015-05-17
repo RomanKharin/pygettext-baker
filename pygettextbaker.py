@@ -172,17 +172,14 @@ def translation(domain, localedir=None, languages=None,
         key = (class_, mofile)
         t = _translations.get(key)
         if t is None:
-            data = None
-            lang, domain = mofile
-            if lang in _mo_langs and domain in _mo_langs[lang]:""")
+            lang, domain = mofile""")
     for idx, lang in enumerate(langs):
-        write("                " + ("if" if idx == 0 else "elif") +
-            "  lang == {}:".format(repr(lang)))
-        write("                    from .{} import _mo".format(lang))
-        write("                    data = _mo.get(domain, None)")
-    write("""            if data:
-                fp = io.BytesIO(data)     
-                t = _translations.setdefault(key, class_(fp))
+        write("            " + ("if" if idx == 0 else "elif") +
+            " lang == {}:".format(repr(lang)))
+        write("                from .{} import _mo".format(lang))
+        write("                data = _mo.get(domain, None)")
+    write("""            fp = io.BytesIO(data)     
+            t = _translations.setdefault(key, class_(fp))
         # Copy the translation object to allow setting fallbacks and
         # output charset. All other instance data is shared with the
         # cached object.
